@@ -8,7 +8,7 @@ import { SiJavascript, SiPython, SiCplusplus } from "react-icons/si";
 import { DiJava } from "react-icons/di";
 
 // Connect to backend
-const socket = io("https://codekonnect.onrender.com", {
+const socket = io("https://paralleldev.onrender.com", {
   transports: ["websocket"],
 });
 
@@ -99,7 +99,7 @@ const App = () => {
         <div className="overlay">
           <div className="join-form">
             <h1>
-              <Code2 size={36} /> CodeKonnect
+              <Code2 size={36} /> ParallelDev
             </h1>
             <p className="tagline">Collaborative Coding, Anytime, Anywhere</p>
 
