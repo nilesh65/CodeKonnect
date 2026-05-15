@@ -16,7 +16,7 @@ import { SiJavascript, SiPython, SiCplusplus } from "react-icons/si";
 import { DiJava } from "react-icons/di";
 
 /* ---------------- SOCKET ---------------- */
-const socket = io("https://paralleldev.onrender.com", {
+const socket = io("https://paralleldev.onrender.com/", {
   transports: ["websocket", "polling"],
 });
 
@@ -155,7 +155,7 @@ const App = () => {
         <div className="overlay">
           <div className="join-form">
             <h1>
-              <Code2 size={36} /> ParallelDev
+              <Code2 size={36} /> CodeKonnect
             </h1>
 
             <p className="tagline">
