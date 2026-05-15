@@ -155,7 +155,7 @@ const App = () => {
         <div className="overlay">
           <div className="join-form">
             <h1>
-              <Code2 size={36} /> CodeKonnect
+              <Code2 size={36} /> ParallelDev
             </h1>
 
             <p className="tagline">
