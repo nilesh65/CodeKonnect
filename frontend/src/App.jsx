@@ -16,7 +16,8 @@ import { SiJavascript, SiPython, SiCplusplus } from "react-icons/si";
 import { DiJava } from "react-icons/di";
 
 /* ---------------- SOCKET ---------------- */
-const socket = io("http://localhost:5000", {
+// ✅ Works both locally and on Render
+const socket = io(import.meta.env.VITE_SERVER_URL || window.location.origin, {
   transports: ["websocket", "polling"],
 });
 
