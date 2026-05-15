@@ -18,7 +18,11 @@ import { DiJava } from "react-icons/di";
 /* ---------------- SOCKET ---------------- */
 // ✅ Works both locally and on Render
 const socket = io(import.meta.env.VITE_SERVER_URL || window.location.origin, {
-  transports: ["websocket", "polling"],
+  transports: ["polling", "websocket"], // ✅ polling FIRST, then upgrade to websocket
+  upgrade: true,
+  reconnection: true,
+  reconnectionAttempts: 5,
+  reconnectionDelay: 1000,
 });
 
 /* ---------------- LANGUAGES ---------------- */

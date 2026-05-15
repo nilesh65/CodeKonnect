@@ -13,7 +13,15 @@ const app = express();
 const server = http.createServer(app);
 
 const io = new Server(server, {
-  cors: { origin: "*" },
+  cors: { 
+    origin: "*",
+    methods: ["GET", "POST"]
+  },
+  // ✅ Allow Render's proxy to handle transport
+  transports: ["websocket", "polling"],
+  allowEIO3: true,
+  pingTimeout: 60000,
+  pingInterval: 25000,
 });
 
 mongoose
@@ -171,5 +179,6 @@ app.use(express.static(path.join(__dirname, "/frontend/dist")));
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "frontend", "dist", "index.html"));
 });
-
+// Health check — keeps Render from spinning down
+app.get("/health", (req, res) => res.send("OK"));
 server.listen(port, () => console.log(`Server running on port ${port}`));
