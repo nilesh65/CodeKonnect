@@ -16,7 +16,7 @@ import { SiJavascript, SiPython, SiCplusplus } from "react-icons/si";
 import { DiJava } from "react-icons/di";
 
 /* ---------------- SOCKET ---------------- */
-const socket = io("https://paralleldev.onrender.com/", {
+const socket = io("http://localhost:5000", {
   transports: ["websocket", "polling"],
 });
 
