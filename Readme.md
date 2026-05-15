@@ -337,20 +337,3 @@ node backend/tests/load.test.js
 ```
 
 ---
-
-## 🔮 Roadmap
-
-- [ ] Chat box inside rooms
-- [ ] Cursor position sync (Google Docs style)
-- [ ] Password-protected rooms
-- [ ] Share code as GitHub Gist
-- [ ] Video/voice chat integration
-- [ ] Session replay
-
----
-
-## 👨‍💻 Author
-
-Built with ❤️ — a real-time collaborative IDE deployed on production and tested with 3+ simultaneous users.
-
-> *"The best way to learn is to build something real."*
