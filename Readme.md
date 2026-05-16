@@ -1,4 +1,4 @@
-# CodeKonnect 🚀
+# CodeKonnect
 
 > **Real-time Collaborative Code Editor** — Write, run, and debug code together, live.
 
