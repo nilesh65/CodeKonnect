@@ -1,2 +1,3 @@
 node_modules/
 http://localhost:5000
+.env
