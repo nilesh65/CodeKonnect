@@ -43,62 +43,21 @@ CodeKonnect is a **production-grade, real-time collaborative IDE** that lets mul
 ---
 
 ## 🏗️ Architecture
-
-```
-![alt text](image.png)
+![alt text](image-1.png)
 
 ---
 
 ## 🔄 Data Flow — How It Works
 
 ### 1. User Joins a Room
-```
-User enters roomId + userName
-       ↓
-Socket emits "join" event
-       ↓
-Server checks in-memory Map
-       ↓ (room not found)
-Server queries MongoDB
-       ↓ (not in DB either)
-Creates new Room document with starter templates
-       ↓
-Stores in Map + emits "userJoined", "codeUpdate", "languageUpdate" to room
-```
+
+![alt text](image-2.png)
 
 ### 2. Code Change (Real-time Sync)
-```
-User types in Monaco Editor
-       ↓
-handleCodeChange() fires
-       ↓
-Socket emits "typing" immediately → other users see typing indicator
-       ↓
-300ms debounce → Socket emits "codeChange"
-       ↓
-Server updates in-memory Map
-       ↓
-Broadcasts "codeUpdate" to all other users in room
-       ↓
-2000ms debounce → writes to MongoDB (prevents DB spam)
-```
+![alt text](image-3.png)
 
 ### 3. Code Execution
-```
-User clicks "Run"
-       ↓
-Socket emits "compileCode" { code, language_id, input }
-       ↓
-Server pushes job to room's execution queue
-       ↓
-processRoomQueue() picks job (FIFO)
-       ↓
-POST request to Judge0 API (10s timeout)
-       ↓
-Response (stdout/stderr) emitted to entire room via "codeResponse"
-       ↓
-All users in room see the output simultaneously
-```
+![alt text](image-4.png)
 
 ---
 
